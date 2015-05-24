@@ -1,6 +1,6 @@
 # Breakout
 
-Een JavaSctipt spel gemaakt met Phaser.js
+Een JavaScript game gemaakt met Phaser.js
 
 TO DO:
 
