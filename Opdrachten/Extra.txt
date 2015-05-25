@@ -1,0 +1,49 @@
+==================
+===== EXTRA ======
+==================
+
+Nu hebben we een werkende spel! Maar we kunnen nog veel meer doen! Zoals een score bijhouden. Hiervoor gaan we een klein beetje
+wiskunde doen, met twee nieuwe variabelen werken en een nieuwe functie om texten te laten zien!
+
+* Als eerste, maak twee variabelen aan. Een variabel punten en een variabel puntenTekst.
+
+De variabel punten houdt het hoeveel heid punten aan.
+De variabel puntenTekst houdt het object die de tekst behalndeld.
+
+* Bij de functie maakEenBalk(), vul je de variabelen in:
+
+De punten variabel vul je in met een 0.
+
+De punten text vul je in zo:
+puntenTekst = new Text(0,0,'tekst');
+
+De twee nulltjes zijn de x en y posities en de 'tekst' is de tekst die wordt weergegeven.
+
+Geef de puntenTekst een goede positie met de tekst: "Punten: " + punten.
+
+* in de raakBlok() code, moet je de punten optellen bij elke blok die wordt vernietigd en weergeven.
+Dit wordt een beetje zelf puzzelen. Je moet gaan denken aan:
+
+Hoe ga ik de punten optellen en waar ga ik de code zetten?
+
+Als je bent uitgekeomen, moet je de puntenTekst aanpassen om de goede punt ta laten weergeven.
+Dit doe je door:
+
+puntenTekst.setText("Punten: " + punten);
+
+Als je echt niet eruit komt, vraag het even aan een van de mentoren!
+
+NOG MEER UITDAGINGEN!????
+
+Van alles die je hebt geleerd, probeer nu levens erin te zetten. 
+
+Dus elke keer als je het vloer raakt, ben je een leven kwijt. of heb je zelf een idee?
+
+Probeer het maar! Als je een tip wil, vraag maar aan de mentoren!
+
+***TIP***
+
+In de main.js zie je de werking van hoe de bal stuiterd. Vind de code en probeer het op te lossen!
+
+
+

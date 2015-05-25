@@ -10,7 +10,7 @@
 
 TIPS:
 
-Er zijn verschillen toetsen die we kunnen gebruiken en om kijken welke toetsen, gaan we de volgende
+Er zijn verschillende toetsen die we kunnen gebruiken en om kijken welke toetsen, gaan we de volgende
 code gebruiken:
 
 // Dit code reageert op de rechter pijl knop

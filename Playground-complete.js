@@ -4,7 +4,12 @@
     ******************
 */
 
-// Zet je variabelen hier
+var balk;
+var balletje;
+var blokken = [];
+var punten;
+var puntenTekst;
+
 
 /*
     *********************************
@@ -14,10 +19,12 @@
 
 function maakEenBalk(){
     
-    // Code hier
+    balk = new Hero(360, 400);
     
-    // Verander de null naar balk wanneer je klaar bent
-    return null;
+    punten = 0;
+    puntenTekst = new Text(viewWidth/2, 50, "Score: " + punten);
+    
+    return balk;
 }
 
 /*
@@ -28,7 +35,22 @@ function maakEenBalk(){
 
 function beweegBalk(){
     
-    // Code hier
+    if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
+            
+        if(balk.getX() <= (viewWidth - balk.getWidth())){
+            
+            balk.beweeg(10);
+        }
+        
+    }
+    
+    if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
+        
+        if(balk.getX() >= 0){
+            
+            balk.beweeg(-10);
+        }
+    }
 }
 
 /*
@@ -39,10 +61,9 @@ function beweegBalk(){
 
 function maakEenBal(){
     
-    // Code hier
+    balletje = new Ball(300, 300);
     
-    // Verander de null naar balletje wanneer je klaar bent
-    return null;
+    return balletje;
 }
 
 /*
@@ -53,34 +74,27 @@ function maakEenBal(){
 
 function blokkenMaker(){
    
-    // Code hier
-    
-    // Verander de null naar blokken wanneer je klaar bent
-   return null;
+   // Handmatisch blokken maken 
+   //blokken.push(new Brick(100, 100, "rood"));
+   //blokken.push(new Brick(200, 100, "blauw"));
+   //blokken.push(new Brick(100, 200, "groen"));
+   //blokken.push(new Brick(300, 100, "rood"));
+   //blokken.push(new Brick(100, 300, "blauw"));
+   
+   // Automagisch blokken maken
+   blokGenerator();
+   
+   return blokken;
    
 }
 
 /*
-    *************************************************
-    *** OPDRACHT 5: Botsing tussen bal en blokken ***
-    *************************************************
+    *************************
+    *** OPDRACHT 4: EXTRA ***
+    *************************
 */
 
-function raakBlok(){
-    
-   // Code hier
-}
-
-
-
-
-/*
-    ******************************
-    *** Hulp en extra functies ***
-    ******************************
-*/
-
-// OPDRACHT 4: EXTRA - Automagische generator
+// Automagische generator
 function blokGenerator(){
     
      /*
@@ -154,7 +168,37 @@ function blokGenerator(){
     }
 }
 
-//  OPDRACHT 5 - Hulp Functie om collisions te detecteren
+
+/*
+    *************************************************
+    *** OPDRACHT 5: Botsing tussen bal en blokken ***
+    *************************************************
+*/
+
+function raakBlok(){
+    
+    for(var i = 0; i < blokken.length; i++){
+        
+        if(checkCollision(balletje.getSprite(), blokken[i].getSprite())){
+            
+            blokken[i].getSprite().destroy();
+            blokken.splice(i,1);
+            
+            if((balletje.getY() + 2) > blokken[i].getY() && (balletje.getY() + 2) < (blokken[i].getY() + blokken[i].getHeight())){
+            
+               balletje.setDirectionX();
+            }
+            
+            balletje.setDirectionY(); 
+            
+            punten = punten + 1;
+            
+            puntenTekst.setText("Score: " + punten);
+        }
+    }
+}
+
+// Hulp Functie om collisions te detecteren
 function checkCollision(spriteA, spriteB){
 
     return Phaser.Rectangle.intersects(spriteA, spriteB);
