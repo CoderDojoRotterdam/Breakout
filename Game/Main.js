@@ -108,7 +108,7 @@ var totalMotion = 0;
         
             if(ball.getX() >= (viewWidth - ball.getWidth()) || ball.getX() <= 0){
                     
-                ball.setDirectionX();
+                ball.setRichtingX();
                 
             }
             
@@ -119,12 +119,12 @@ var totalMotion = 0;
                     // Extract life here
                 }
                 
-                ball.setDirectionY();
+                ball.setRichtingY();
             }
             
-            if(checkCollision(ball.getSprite(), hero.getSprite())){
+            if(controleerBotsing(ball.getSprite(), hero.getSprite())){
                 
-                ball.setDirectionY();
+                ball.setRichtingY();
             }
         }
     }

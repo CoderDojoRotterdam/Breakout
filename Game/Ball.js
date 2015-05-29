@@ -22,7 +22,7 @@ Ball.prototype.setX = function(x){ this.sprite.x = x; };
 Ball.prototype.setY = function(y){ this.sprite.y = y; };
 Ball.prototype.getWidth = function(){ return this.sprite.width; };
 Ball.prototype.getHeight = function(){ return this.sprite.height; };
-Ball.prototype.setDirectionY = function(){ this.directionY *= -1;  };
-Ball.prototype.setDirectionX = function(){ this.directionX *= -1;  };
+Ball.prototype.setRichtingY = function(){ this.directionY *= -1;  };
+Ball.prototype.setRichtingX = function(){ this.directionX *= -1;  };
 Ball.prototype.getSprite = function(){ return this.sprite; }
 Ball.prototype.setSpeed = function(s){ this.speed = s; }

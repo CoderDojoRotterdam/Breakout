@@ -6,6 +6,7 @@
 
 // Zet je variabelen hier
 
+
 /*
     *********************************
     *** OPDRACHT 1: Maak een balk ***
@@ -16,14 +17,14 @@ function maakEenBalk(){
     
     // Code hier
     
-    // Verander de null naar balk wanneer je klaar bent
+    // Verander null naar balk
     return null;
 }
 
 /*
-    **********************************************************
-    *** OPDRACHT 2: Balk laten bewegen met de toetsenbord! ***
-    **********************************************************
+    ***********************************************************
+    *** OPDRACHT 2: Balk laten bewegen met het toetsenbord! ***
+    ***********************************************************
 */
 
 function beweegBalk(){
@@ -41,7 +42,7 @@ function maakEenBal(){
     
     // Code hier
     
-    // Verander de null naar balletje wanneer je klaar bent
+    // Verander null naar balletje
     return null;
 }
 
@@ -54,43 +55,25 @@ function maakEenBal(){
 function blokkenMaker(){
    
     // Code hier
-    
-    // Verander de null naar blokken wanneer je klaar bent
-   return null;
+   
+    // Verander null naar blokken
+    return null;
    
 }
 
 /*
-    *************************************************
-    *** OPDRACHT 5: Botsing tussen bal en blokken ***
-    *************************************************
+    *************************
+    *** OPDRACHT 4: EXTRA ***
+    *************************
 */
 
-function raakBlok(){
-    
-   // Code hier
-}
-
-
-
-
-/*
-    ******************************
-    *** Hulp en extra functies ***
-    ******************************
-*/
-
-// OPDRACHT 4: EXTRA - Automagische generator
+// Automagische blokken generator
 function blokGenerator(){
     
      /*
-        Dit is een array met hoe de blokken zal worden gemaakt. De nummers zijn allemaal zelf bepaalde kleur code,
-        zodat het makkelijk is om de kleuren in te voegen. Dit is een vaak gebruikte techniek om alvast een overzicht te
-        krijgen over wat het resultaat is.
+        Dit is een array met hoe de blokken zullen worden gemaakt. De nummers hieronder staan voor de kleur van het blokje en heb ik zelf vastgesteld.
+        De kleuren die je kunt gebruiken, zijn:
         
-        Maar dit is een klein gedeelte van de code! Dit bepaald alleen wat voor kleur er wordt gebruikt bij het maken van blokken.
-        
-        Blok kleuren
         0 = groen
         1 = blauw
         2 = rood
@@ -108,54 +91,55 @@ function blokGenerator(){
     ];
     
     /*
-        Dit stuk code is het hart van het maken van blokken in een makelijk manier.
+        Dit stuk code is het hart van het maken van blokken op een makelijk manier.
         
-        Dit is dus een for loop die bij elke rondje een nieuwe blok toevoegd. Bij elke rondje wordt er ook
-        een berekening gedaan om ze netjes naast elkaar te zetten. En met hulp van de blokKleur array, wordt 
+        Dit is dus een for loop die bij elke ronde een nieuw blok toevoegd. Bij elke ronde wordt er ook
+        een berekening gedaan om ze netjes naast elkaar te zetten. En met hulp van de blokKleur array, worden 
         de kleuren dynamisch ingeladen.
         
         
     */
     
-    // Het hoeveelheid blokken die per rij wordt gemaakt
-    var count = 11;
-    
     // De afstand Y tegenover andere blokken
     var nextRow = 0;
     
     // De afstand X tegenover andere blokken
-    var nextColum = 0;
-    
-    // Het hoeveelheid blokken die wordt gemaakt
-    var blokAmount = 96;
+    var nextColumn = 0;
     
     // Een for loop om de blokken te maken. 
-    for(var i = 0; i < blokAmount; i++){
+    for(var i = 0; i < blokKleur.length; i++){
         
-        // Bij elke loop, een nieuwe blok toevoegen met de berekend variabelen en gegeven blok kleur
-        blokken.push(new Brick(50 + ((41 * nextColum) + (10 * nextColum)), 100 + nextRow, blokKleur[i]));
+        // Bij elke loop, een nieuw blok toevoegen met de berekende variabelen en gegeven blok kleur
+        blokken.push(new Brick(50 + ((41 * nextColumn) + (10 * nextColumn)), 100 + nextRow, blokKleur[i]));
         
         /*
-            Na het toevoegen van het blok als de count gelijk is aan de i, gaat count met 12 blokken omhoog.
-            De nextRow (y) wordt met 20 pixels omhoog berekend, dus de blokken gaan op de volgende rij.
-            De nextColum (x) wordt terug gezet naar 0, om weer aan het begin van de rij beginnen.
-            
-            Als de count niet gelijk is aan de i, dan wordt nextColumn (x) met 1 geplusd om de volgende blok
-            netjes naast de vorgie blok wordt geplaatst.
-        
+            Iedere 12 blokjes schuiven we een regel op naar beneden en gaan we daar verder met het tekenen
+            van de blokjes. De newRow (y) wordt met 20 pixels verhoogd en de nextColumn wordt verhoogd met 1.
         */
-        if(i == count){
-            
-            count = count + 12;
+        
+        if((i+1)%12 == 0 && i > 0){
+
             nextRow = nextRow + 20;
-            nextColum = 0;
+            nextColumn = 0;
             
-        }else{ nextColum++; }
+        }else{ nextColumn++; }
     }
 }
 
-//  OPDRACHT 5 - Hulp Functie om collisions te detecteren
-function checkCollision(spriteA, spriteB){
+
+/*
+    *************************************************
+    *** OPDRACHT 5: Botsing tussen bal en blokken ***
+    *************************************************
+*/
+
+function raakBlok(){
+    
+    // Code hier
+}
+
+// Hulp Functie om de botsingen te detecteren
+function controleerBotsing(spriteA, spriteB){
 
     return Phaser.Rectangle.intersects(spriteA, spriteB);
 }

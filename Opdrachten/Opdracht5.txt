@@ -2,9 +2,9 @@
 *** OPDRACHT 5: Botsing tussen bal en blokken ***
 *************************************************
 
-* Schrijf het code in de functie raakBlok() *
+* Schrijf de code in de functie raakBlok() *
 
-We zijn er bijna! Nu moeten de blokken geraakt en vernietigd worden door de balletje. Hierzo gaan een combinatie van
+We zijn er bijna! Nu moeten de blokken geraakt en vernietigd worden door het balletje. Hierzo gaan een combinatie van
 van een paar if statements, arrays en een loop gebruiken.
 
 =====================================
@@ -14,7 +14,7 @@ van een paar if statements, arrays en een loop gebruiken.
 TIP:
 
 Om alle blokken aan te kunnen spreken, moeten we een for loop bouwen die door alle blokken in de blokken array
-loopt. Zo kunnen we bij elke blok een actie toevoegen zonder herhalende code te schrijven.
+loopt. Zo kunnen we bij elk blok een actie toevoegen zonder herhalende code te schrijven.
 
 Een for loop ziet er zo uit:
 
@@ -26,16 +26,16 @@ for(var i = 0; i < 10; i++){
 In de for loop heb je drie argumenten dus for(a, b, c){}
 
 a. var i = 0;
-Dit is het start waarde waar de loop begint en kan gebruikt worden in de loop.
-De variabel i kan ook een d, c, a, enz zijn. Het is alleen een variabel met een nummer erin. De nummer is het begin stand van de loop.
+Dit is de start waarde waar de loop begint en kan gebruikt worden in de loop.
+De variabele i kan ook een d, c, a, enz zijn. Het is alleen een variabele met een nummer erin. Het nummer is de begin stand van de loop.
 
 
 b. i < 10;
-Dit is hoeveel keren de loop moet lopen. Wat je hier leest is de i is kleiner dan 10. Dit betekent, als de i kleiner is
+Dit is hoeveel keren de loop moet loopen. Wat je hier leest is 'i is kleiner dan 10'. Dit betekent, als de i kleiner is
 dan 10, voer de code in de loop uit.
 
 c. i++
-Dit wordt aan het eind van de loop uitgevoerd. Elke keer als de loop eindigt, wordt de i geplusd met 1.
+Dit wordt aan het eind van de loop uitgevoerd. Elke keer als de loop eindigt, wordt de i met 1 verhoogt.
 
 * In combinatie met de drie argumenten, wordt er een loop uitgevoerd met een limiet afhankelijk van de tweede argument.
 
@@ -64,7 +64,7 @@ array.length geeft 3 terug
 
 * array[i].doeIets();
 Het belangrijkste gedeelte is de i in array[i]. Als je een element in een array wil aanspreken, gebruik je de 
-positie van de element in de array.
+positie van het element in de array. Dit noemen we de index.
 
 voorbeeld: 
 
@@ -73,7 +73,7 @@ array = ['hello', 'world', 'dojo'];
 array[0] is dus 'hello'
 array[2] is dus 'dojo'
 
-Doordat de i bij 0 begint en wordt bij elke loop omhoog. Kun je de i makkelijjk gebruiken om de elementen te gebruiken.\
+Doordat de i bij 0 begint en wordt bij elke loop verhoogt. Kun je de i makkelijk gebruiken om de elementen te selecteren.
 
 voorbeeld: 
 
@@ -82,36 +82,36 @@ for(var i = 0; i < array.length; i++){
     alert(array[i]); // Als i op 1 staat, dan krijg je 'world'
 }
 
-* Pas het techniek toe met de blokken array.
+* Pas de techniek toe met de blokken array.
 
-===================================================
-===== C. Elke blok raken met een hulp functie =====
-===================================================
+==================================================
+===== C. Elk blok raken met een hulp functie =====
+==================================================
 
 TIPS:
 
-Nu dat we door alle blokken kan loopen, kunnen we een actie uitvoeren bij elke blokje.
+Nu dat we door alle blokken kunnen loopen, kunnen we een actie uitvoeren bij elk blokje.
 
-Hiervoor kun je een klaargemaakte functie gebruiken:
+Hiervoor kun je een kant-en-klare functie gebruiken:
 
-checkCollision(spriteA, spriteB);
+controleerBotsing(spriteA, spriteB);
 
-Dit functie kijkt of sprite A in contact komt met sprite B. Als er contact is, geeft het een true terug, anders een false.
+Deze functie kijkt of sprite A in contact komt met sprite B. Als er contact is, geeft het een true terug, anders een false.
 Komt een beetje bekend voor? Kijk terug naar opdracht 2 om even te verfriseen. Dus de code kun je combineren met een 
 if statement.
 
-Als parameters zie je sprite. Dat is dus een data type die je gaat gebruiken. Gelukkig kun je de sprite opvragen van de blokken
+De parameters van de functie controleerBotsing zijn twee verschillende sprites. Gelukkig kun je de sprite opvragen van de blokken
 en het balletje! Die kun je op de volgende manier doen:
 
 balletje.getSprite();
 
 blokken[i].getSprite();
 
-* Pas de code toe aan de huidige situatie, je moet zo denken:
+* Pas de code toe op de huidige situatie, je moet zo denken:
 
 if(bal raakt blok){
     
-    er gebeurt iets met de blok en de bal
+    er gebeurt iets met het blok en de bal
 }
 
 ===================================
@@ -120,7 +120,7 @@ if(bal raakt blok){
 
 TIPS:
 
-We hebben een interactie met de blokken en ballen maar er wordt nog niks gedaan!? Dan moeten de nog een code toevoegen
+We hebben een interactie met de blokken en de bal maar er wordt nog niks gedaan!? Dan moeten we nog een code toevoegen
 om de blokken te vernietigen! Dit kun je met de volgende code doen:
 
 blokken[0].getSprite().destroy();
@@ -129,8 +129,8 @@ Om errors te voorkomen, moet je nog een code gebruiken, namelijk:
 
 blokken.splice(i, 1);
 
-Dit code zorgt ervoor dat de blok die wordt vernietigd, ook van de array wordt weg gehaald. Zo voorkom je dat er geen onzichtbare
-elementen rond hangen. En je maakt meer ruimte voor de spel door onidige data weg te gooien.
+Deze code zorgt ervoor dat het blok dat wordt vernietigd, ook van de array wordt weg gehaald. Zo voorkom je dat er geen onzichtbare
+elementen rond hangen. En je maakt meer ruimte voor het spel door onnodige data weg te gooien.
 
 * Zet de twee codes op de goede plek!
 
@@ -141,15 +141,15 @@ elementen rond hangen. En je maakt meer ruimte voor de spel door onidige data we
 TIPS:
 
 Nu worden de blokken vernietigd, maar het balletje gaat door alle blokken heen! Om dit te voorkomen, moet je ervoor zorgen
-dat het balletje een andere richting gaat wanneer het in contact komt met een blok.
+dat het balletje een andere richting op gaat wanneer het in contact komt met een blok.
 
 Om de richting van de bal te veranderen, kun de volgende code gebruiken:
 
-Dit code zorgt ervoor dat het balletje van links naar rechts veranderdt of anderson
-balletje.setDirectionX(); 
+Deze code zorgt ervoor dat het balletje van links naar rechts verandert of andersom
+balletje.setRichtingX();
 
-Dit code zorgt ervoor dat balletje van boven naar beneden veraandert of andersom
-balletje.setDirectionY(); 
+Deze code zorgt ervoor dat balletje van boven naar beneden verandert of andersom
+balletje.setRichtingY(); 
 
 Er is nog een stuk code om erbij te helpen:
 
@@ -158,8 +158,8 @@ if((balletje.getY() + 2) > blokken[i].getY() && (balletje.getY() + 2) < (blokken
    // verander richting
 }
 
-De bovenste code is een if statement om te kijken of de bal midden het blok aan de zijkanten raakt. Hierdoor kun je een van de richtingen
+De bovenste code is een if statement om te kijken of de bal het blok aan de zijkanten raakt. Hierdoor kun je een van de richtingen
 veranderen!
 
 * Gebruik de bovenstaande codes om de richtingen te bepalen. Het kan met of zonder de if statement. Je moet alleen zorgen
-dat het balletje van richting vranderd.
+dat het balletje van richting vrandert.
